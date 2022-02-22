@@ -1,2 +1,2 @@
 # MiniBank
-## Author-{Rigin Oleg}
+## Author - Rigin Oleg
