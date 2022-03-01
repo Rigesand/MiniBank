@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniBank.Web", "MiniBank.Web\MiniBank.Web.csproj", "{9EDFD8DB-601E-4272-8F62-F48F43EE1276}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniBank.Core", "MiniBank.Core\MiniBank.Core.csproj", "{85C50959-BBE2-465C-BA4F-8D2781128741}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniBank.Data", "MiniBank.Data\MiniBank.Data.csproj", "{D2FD37AD-FAC0-4335-9140-CDDCEAFD323C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9EDFD8DB-601E-4272-8F62-F48F43EE1276}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EDFD8DB-601E-4272-8F62-F48F43EE1276}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EDFD8DB-601E-4272-8F62-F48F43EE1276}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EDFD8DB-601E-4272-8F62-F48F43EE1276}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85C50959-BBE2-465C-BA4F-8D2781128741}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85C50959-BBE2-465C-BA4F-8D2781128741}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85C50959-BBE2-465C-BA4F-8D2781128741}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85C50959-BBE2-465C-BA4F-8D2781128741}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2FD37AD-FAC0-4335-9140-CDDCEAFD323C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2FD37AD-FAC0-4335-9140-CDDCEAFD323C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2FD37AD-FAC0-4335-9140-CDDCEAFD323C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2FD37AD-FAC0-4335-9140-CDDCEAFD323C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
