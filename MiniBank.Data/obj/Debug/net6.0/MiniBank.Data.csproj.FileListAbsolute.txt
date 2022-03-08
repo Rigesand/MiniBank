@@ -15,7 +15,6 @@ C:\Users\origi\Desktop\MiniBank\MiniBank.Data\obj\Debug\net6.0\ref\MiniBank.Data
 C:\Users\origi\Desktop\MiniBank\MiniBank.Data\obj\Debug\net6.0\MiniBank.Data.pdb
 C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Data\bin\Debug\net6.0\MiniBank.Data.deps.json
 C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Data\bin\Debug\net6.0\MiniBank.Data.dll
-C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Data\bin\Debug\net6.0\ref\MiniBank.Data.dll
 C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Data\bin\Debug\net6.0\MiniBank.Data.pdb
 C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Data\bin\Debug\net6.0\MiniBank.Core.dll
 C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Data\bin\Debug\net6.0\MiniBank.Core.pdb
@@ -28,3 +27,4 @@ C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Data\obj\Debug\net6.0\MiniBank
 C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Data\obj\Debug\net6.0\MiniBank.Data.dll
 C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Data\obj\Debug\net6.0\ref\MiniBank.Data.dll
 C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Data\obj\Debug\net6.0\MiniBank.Data.pdb
+C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Data\obj\Debug\net6.0\refint\MiniBank.Data.dll

@@ -1,4 +1,5 @@
-﻿using MiniBank.Core.Exception;
+﻿using System;
+using MiniBank.Core.Exception;
 using MiniBank.Core.Interfaces;
 
 namespace MiniBank.Core.Services
@@ -11,14 +12,16 @@ namespace MiniBank.Core.Services
         {
             _currencyCode = currencyCode;
         }
-        public int Convert(int sum, string сurrencyСode)
+        public decimal Convert(decimal sum, string currencyCode)
         {
             if (sum < 0)
-                throw new System.Exception();
-            var exchangeRate = _currencyCode.GetExchangeRate(сurrencyСode);
+                throw new UserFriendlyException();
+            if (sum == 0)
+                return 0;
+            var exchangeRate = _currencyCode.GetExchangeRate(currencyCode);
             if (exchangeRate<0)
                 throw new UserFriendlyException();
-            return sum / exchangeRate;
+            return decimal.Round(sum / exchangeRate,5,MidpointRounding.ToEven);
         }
     }
 }

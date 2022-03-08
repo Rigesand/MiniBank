@@ -35,7 +35,6 @@ C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\bin\Debug\net6.0\MiniBank.
 C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\bin\Debug\net6.0\MiniBank.Web.deps.json
 C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\bin\Debug\net6.0\MiniBank.Web.runtimeconfig.json
 C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\bin\Debug\net6.0\MiniBank.Web.dll
-C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\bin\Debug\net6.0\ref\MiniBank.Web.dll
 C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\bin\Debug\net6.0\MiniBank.Web.pdb
 C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\bin\Debug\net6.0\Microsoft.OpenApi.dll
 C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
@@ -60,3 +59,4 @@ C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\obj\Debug\net6.0\MiniBank.
 C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\obj\Debug\net6.0\ref\MiniBank.Web.dll
 C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\obj\Debug\net6.0\MiniBank.Web.pdb
 C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\obj\Debug\net6.0\MiniBank.Web.genruntimeconfig.cache
+C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\obj\Debug\net6.0\refint\MiniBank.Web.dll

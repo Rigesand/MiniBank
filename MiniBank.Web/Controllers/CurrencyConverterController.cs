@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MiniBank.Core.Interfaces;
 
 namespace MiniBank.Web.Controllers
@@ -16,9 +15,9 @@ namespace MiniBank.Web.Controllers
         }
         
         [HttpGet]
-        public int Convert(int sum,string сurrencyСode)
+        public decimal Convert(decimal sum,string currencyCode)
         {
-            var currencySum=_currencyConverterService.Convert(sum, сurrencyСode);
+            var currencySum=_currencyConverterService.Convert(sum, currencyCode);
             return currencySum;
         }
     }

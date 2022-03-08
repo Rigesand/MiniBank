@@ -2,6 +2,6 @@
 {
     public interface ICurrencyConverter
     {
-        public int Convert(int sum, string сurrencyСode);
+        public decimal Convert(decimal sum, string currencyCode);
     }
 }

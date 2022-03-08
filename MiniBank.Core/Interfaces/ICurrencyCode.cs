@@ -2,6 +2,6 @@
 {
     public interface ICurrencyCode
     {
-        public int GetExchangeRate(string currencyCode);
+        public decimal GetExchangeRate(string currencyCode);
     }
 }
