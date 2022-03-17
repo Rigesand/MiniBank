@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using MiniBank.Core.Interfaces;
-using MiniBank.Core.Services;
-using MiniBank.Data.Services;
-using MiniBank.Web.ExstensionsMiddlewares;
+using MiniBank.Core;
+using MiniBank.Data;
+using MiniBank.Web;
+using MiniBank.Web.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,13 +15,20 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<ICurrencyConverter, CurrencyConverterService>();
-builder.Services.AddScoped<ICurrencyCode, CurrencyCodeService>();
+builder.Services
+    .AddCore()
+    .AddData(builder.Configuration);
+
+builder.Services.AddAutoMapper(cfg =>
+{
+    cfg.AddProfile<ApiMappingProfile>();
+    cfg.AddProfile<DataMappingProfile>();
+});
 
 var app = builder.Build();
 
-app.UseException();
-app.UserFriendlyException();
+//app.UseException();
+app.UseValidationException();
 
 
 // Configure the HTTP request pipeline.

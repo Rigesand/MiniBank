@@ -60,3 +60,5 @@ C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\obj\Debug\net6.0\ref\MiniB
 C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\obj\Debug\net6.0\MiniBank.Web.pdb
 C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\obj\Debug\net6.0\MiniBank.Web.genruntimeconfig.cache
 C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\obj\Debug\net6.0\refint\MiniBank.Web.dll
+C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

@@ -1,29 +1,25 @@
 ﻿using System;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 
 namespace MiniBank.Web.Middlewares
 {
-    public class ExceptionMiddleware
+    public static class ExceptionMiddleware
     {
-        public readonly RequestDelegate next;
-
-        public ExceptionMiddleware(RequestDelegate next)
+        public static void UseException(this IApplicationBuilder app)
         {
-            this.next = next;
-        }
-
-        public async Task Invoke(HttpContext httpContext)
-        {
-            try
+            app.Use(async (context, next) =>
             {
-                await next(httpContext);
-            }
-            catch (Exception ex)
-            {
-                httpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
-                await httpContext.Response.WriteAsJsonAsync(new { Message = "Внутренняя ошибка сервера" });
-            }
+                try
+                {
+                    await next(context);
+                }
+                catch (Exception ex)
+                {
+                    context.Response.StatusCode = StatusCodes.Status400BadRequest;
+                    await context.Response.WriteAsJsonAsync(new { Message = "Внутренняя ошибка сервера" });
+                }
+            });
         }
     }
 }
