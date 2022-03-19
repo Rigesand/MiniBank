@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CFpyC5vjm5RUPlx+ixXfob9tbjfDnAMAnYAJoUi6AHcBcNijtWw3YzOs4aRossbmX1kcC/8zN883KAehPRojCQ==",
+  "dgSpecHash": "jnMh8TEmlvJZz+yY+OsQD+Sl+YBqjBIjgTSWv9qRXfocuONtS0kEjDgNYK7/Sa+9STkawSI4x7gogeDubn7uPQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Core\\MiniBank.Core.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\origi\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
-  ],
+  "projectFilePath": "/Users/r.kadraliev/Repos/net-fintech/rigin-oleg/minibank/MiniBank.Core/MiniBank.Core.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

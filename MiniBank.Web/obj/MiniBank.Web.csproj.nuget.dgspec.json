@@ -1,27 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Web\\MiniBank.Web.csproj": {}
+    "/Users/r.kadraliev/Repos/net-fintech/rigin-oleg/minibank/MiniBank.Web/MiniBank.Web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Core\\MiniBank.Core.csproj": {
+    "/Users/r.kadraliev/Repos/net-fintech/rigin-oleg/minibank/MiniBank.Core/MiniBank.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Core\\MiniBank.Core.csproj",
+        "projectUniqueName": "/Users/r.kadraliev/Repos/net-fintech/rigin-oleg/minibank/MiniBank.Core/MiniBank.Core.csproj",
         "projectName": "MiniBank.Core",
-        "projectPath": "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Core\\MiniBank.Core.csproj",
-        "packagesPath": "C:\\Users\\origi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Core\\obj\\",
+        "projectPath": "/Users/r.kadraliev/Repos/net-fintech/rigin-oleg/minibank/MiniBank.Core/MiniBank.Core.csproj",
+        "packagesPath": "/Users/r.kadraliev/.nuget/packages/",
+        "outputPath": "/Users/r.kadraliev/Repos/net-fintech/rigin-oleg/minibank/MiniBank.Core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\origi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/r.kadraliev/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://vm-nuget01.tcsbank.ru/nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,12 +38,6 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "dependencies": {
-            "Microsoft.Extensions.DependencyInjection.Abstractions": {
-              "target": "Package",
-              "version": "[6.0.0, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -60,36 +53,35 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Data\\MiniBank.Data.csproj": {
+    "/Users/r.kadraliev/Repos/net-fintech/rigin-oleg/minibank/MiniBank.Data/MiniBank.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Data\\MiniBank.Data.csproj",
+        "projectUniqueName": "/Users/r.kadraliev/Repos/net-fintech/rigin-oleg/minibank/MiniBank.Data/MiniBank.Data.csproj",
         "projectName": "MiniBank.Data",
-        "projectPath": "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Data\\MiniBank.Data.csproj",
-        "packagesPath": "C:\\Users\\origi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Data\\obj\\",
+        "projectPath": "/Users/r.kadraliev/Repos/net-fintech/rigin-oleg/minibank/MiniBank.Data/MiniBank.Data.csproj",
+        "packagesPath": "/Users/r.kadraliev/.nuget/packages/",
+        "outputPath": "/Users/r.kadraliev/Repos/net-fintech/rigin-oleg/minibank/MiniBank.Data/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\origi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/r.kadraliev/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://vm-nuget01.tcsbank.ru/nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Core\\MiniBank.Core.csproj": {
-                "projectPath": "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Core\\MiniBank.Core.csproj"
+              "/Users/r.kadraliev/Repos/net-fintech/rigin-oleg/minibank/MiniBank.Core/MiniBank.Core.csproj": {
+                "projectPath": "/Users/r.kadraliev/Repos/net-fintech/rigin-oleg/minibank/MiniBank.Core/MiniBank.Core.csproj"
               }
             }
           }
@@ -103,24 +95,6 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "dependencies": {
-            "AutoMapper": {
-              "target": "Package",
-              "version": "[11.0.0, )"
-            },
-            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
-              "target": "Package",
-              "version": "[11.0.0, )"
-            },
-            "Microsoft.Extensions.Configuration.Abstractions": {
-              "target": "Package",
-              "version": "[6.0.0, )"
-            },
-            "Microsoft.Extensions.Http": {
-              "target": "Package",
-              "version": "[6.0.0, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -136,39 +110,38 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Web\\MiniBank.Web.csproj": {
+    "/Users/r.kadraliev/Repos/net-fintech/rigin-oleg/minibank/MiniBank.Web/MiniBank.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Web\\MiniBank.Web.csproj",
+        "projectUniqueName": "/Users/r.kadraliev/Repos/net-fintech/rigin-oleg/minibank/MiniBank.Web/MiniBank.Web.csproj",
         "projectName": "MiniBank.Web",
-        "projectPath": "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Web\\MiniBank.Web.csproj",
-        "packagesPath": "C:\\Users\\origi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Web\\obj\\",
+        "projectPath": "/Users/r.kadraliev/Repos/net-fintech/rigin-oleg/minibank/MiniBank.Web/MiniBank.Web.csproj",
+        "packagesPath": "/Users/r.kadraliev/.nuget/packages/",
+        "outputPath": "/Users/r.kadraliev/Repos/net-fintech/rigin-oleg/minibank/MiniBank.Web/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\origi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/r.kadraliev/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://vm-nuget01.tcsbank.ru/nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Core\\MiniBank.Core.csproj": {
-                "projectPath": "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Core\\MiniBank.Core.csproj"
+              "/Users/r.kadraliev/Repos/net-fintech/rigin-oleg/minibank/MiniBank.Core/MiniBank.Core.csproj": {
+                "projectPath": "/Users/r.kadraliev/Repos/net-fintech/rigin-oleg/minibank/MiniBank.Core/MiniBank.Core.csproj"
               },
-              "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Data\\MiniBank.Data.csproj": {
-                "projectPath": "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Data\\MiniBank.Data.csproj"
+              "/Users/r.kadraliev/Repos/net-fintech/rigin-oleg/minibank/MiniBank.Data/MiniBank.Data.csproj": {
+                "projectPath": "/Users/r.kadraliev/Repos/net-fintech/rigin-oleg/minibank/MiniBank.Data/MiniBank.Data.csproj"
               }
             }
           }
@@ -183,14 +156,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "AutoMapper": {
-              "target": "Package",
-              "version": "[11.0.0, )"
-            },
-            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
-              "target": "Package",
-              "version": "[11.0.0, )"
-            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
@@ -214,7 +179,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
         }
       }
     }
