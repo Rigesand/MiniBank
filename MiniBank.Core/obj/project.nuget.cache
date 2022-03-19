@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VV+MJBHiYNmyBbzCQ7PSEPV5Lq9NKZanJiIyjRT5gHlNeasD3VxfYaqP18cfEtIAB93SwZQmAusWW6L+/cv4uw==",
+  "dgSpecHash": "jnMh8TEmlvJZz+yY+OsQD+Sl+YBqjBIjgTSWv9qRXfocuONtS0kEjDgNYK7/Sa+9STkawSI4x7gogeDubn7uPQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\origi\\Desktop\\Projects\\MiniBank\\MiniBank.Core\\MiniBank.Core.csproj",
+  "projectFilePath": "/Users/r.kadraliev/Repos/net-fintech/rigin-oleg/minibank/MiniBank.Core/MiniBank.Core.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

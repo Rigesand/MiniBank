@@ -1,27 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\origi\\Desktop\\Projects\\MiniBank\\MiniBank.Core\\MiniBank.Core.csproj": {}
+    "/Users/r.kadraliev/Repos/net-fintech/rigin-oleg/minibank/MiniBank.Core/MiniBank.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\origi\\Desktop\\Projects\\MiniBank\\MiniBank.Core\\MiniBank.Core.csproj": {
+    "/Users/r.kadraliev/Repos/net-fintech/rigin-oleg/minibank/MiniBank.Core/MiniBank.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\origi\\Desktop\\Projects\\MiniBank\\MiniBank.Core\\MiniBank.Core.csproj",
+        "projectUniqueName": "/Users/r.kadraliev/Repos/net-fintech/rigin-oleg/minibank/MiniBank.Core/MiniBank.Core.csproj",
         "projectName": "MiniBank.Core",
-        "projectPath": "C:\\Users\\origi\\Desktop\\Projects\\MiniBank\\MiniBank.Core\\MiniBank.Core.csproj",
-        "packagesPath": "C:\\Users\\origi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\origi\\Desktop\\Projects\\MiniBank\\MiniBank.Core\\obj\\",
+        "projectPath": "/Users/r.kadraliev/Repos/net-fintech/rigin-oleg/minibank/MiniBank.Core/MiniBank.Core.csproj",
+        "packagesPath": "/Users/r.kadraliev/.nuget/packages/",
+        "outputPath": "/Users/r.kadraliev/Repos/net-fintech/rigin-oleg/minibank/MiniBank.Core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\origi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/r.kadraliev/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://vm-nuget01.tcsbank.ru/nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -54,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
         }
       }
     }
