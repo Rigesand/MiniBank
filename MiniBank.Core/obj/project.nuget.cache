@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "g+xHgmW3zbBrP/rUyizr/Ttnj8zHOSMQh9cuLJEMvGb+Pyf1HcTPY+ZodMdT92wwQ6K7XCQWdCnBgpN4iF8geA==",
+  "dgSpecHash": "CFpyC5vjm5RUPlx+ixXfob9tbjfDnAMAnYAJoUi6AHcBcNijtWw3YzOs4aRossbmX1kcC/8zN883KAehPRojCQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\origi\\Desktop\\Projects\\MiniBank\\MiniBank.Core\\MiniBank.Core.csproj",
+  "projectFilePath": "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Core\\MiniBank.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\origi\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
   ],

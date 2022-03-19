@@ -784,11 +784,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\origi\\Desktop\\Projects\\MiniBank\\MiniBank.Web\\MiniBank.Web.csproj",
+      "projectUniqueName": "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Web\\MiniBank.Web.csproj",
       "projectName": "MiniBank.Web",
-      "projectPath": "C:\\Users\\origi\\Desktop\\Projects\\MiniBank\\MiniBank.Web\\MiniBank.Web.csproj",
+      "projectPath": "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Web\\MiniBank.Web.csproj",
       "packagesPath": "C:\\Users\\origi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\origi\\Desktop\\Projects\\MiniBank\\MiniBank.Web\\obj\\",
+      "outputPath": "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Web\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\origi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -805,11 +805,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\origi\\Desktop\\Projects\\MiniBank\\MiniBank.Core\\MiniBank.Core.csproj": {
-              "projectPath": "C:\\Users\\origi\\Desktop\\Projects\\MiniBank\\MiniBank.Core\\MiniBank.Core.csproj"
+            "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Core\\MiniBank.Core.csproj": {
+              "projectPath": "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Core\\MiniBank.Core.csproj"
             },
-            "C:\\Users\\origi\\Desktop\\Projects\\MiniBank\\MiniBank.Data\\MiniBank.Data.csproj": {
-              "projectPath": "C:\\Users\\origi\\Desktop\\Projects\\MiniBank\\MiniBank.Data\\MiniBank.Data.csproj"
+            "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Data\\MiniBank.Data.csproj": {
+              "projectPath": "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Data\\MiniBank.Data.csproj"
             }
           }
         }

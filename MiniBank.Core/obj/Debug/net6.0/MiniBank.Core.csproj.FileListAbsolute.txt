@@ -1,6 +1,5 @@
 C:\Users\origi\Desktop\MiniBank\MiniBank.Core\bin\Debug\net6.0\MiniBank.Core.deps.json
 C:\Users\origi\Desktop\MiniBank\MiniBank.Core\bin\Debug\net6.0\MiniBank.Core.dll
-C:\Users\origi\Desktop\MiniBank\MiniBank.Core\bin\Debug\net6.0\ref\MiniBank.Core.dll
 C:\Users\origi\Desktop\MiniBank\MiniBank.Core\bin\Debug\net6.0\MiniBank.Core.pdb
 C:\Users\origi\Desktop\MiniBank\MiniBank.Core\obj\Debug\net6.0\MiniBank.Core.csproj.AssemblyReference.cache
 C:\Users\origi\Desktop\MiniBank\MiniBank.Core\obj\Debug\net6.0\MiniBank.Core.GeneratedMSBuildEditorConfig.editorconfig
@@ -24,3 +23,4 @@ C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Core\obj\Debug\net6.0\MiniBank
 C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Core\obj\Debug\net6.0\refint\MiniBank.Core.dll
 C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Core\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Core\obj\Debug\net6.0\MiniBank.Core.csproj.CopyComplete
+C:\Users\origi\Desktop\MiniBank\MiniBank.Core\obj\Debug\net6.0\refint\MiniBank.Core.dll

@@ -54,11 +54,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\origi\\Desktop\\Projects\\MiniBank\\MiniBank.Core\\MiniBank.Core.csproj",
+      "projectUniqueName": "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Core\\MiniBank.Core.csproj",
       "projectName": "MiniBank.Core",
-      "projectPath": "C:\\Users\\origi\\Desktop\\Projects\\MiniBank\\MiniBank.Core\\MiniBank.Core.csproj",
+      "projectPath": "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Core\\MiniBank.Core.csproj",
       "packagesPath": "C:\\Users\\origi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\origi\\Desktop\\Projects\\MiniBank\\MiniBank.Core\\obj\\",
+      "outputPath": "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\origi\\AppData\\Roaming\\NuGet\\NuGet.Config",

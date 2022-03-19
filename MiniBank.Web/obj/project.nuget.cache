@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ktQ6yaToeloM1Uww7AtM47i2mWfH3mSnCbhWOVg5LR1v1UJgq/NsqDqET1irfhfcrvmpD1aM+Tw44PUfjr0U2w==",
+  "dgSpecHash": "FNRCtsvzVMSc5lWBVUDMEwqXJsSAby8I+hFoNdrlKkTMEnvLFqWthbTmfIRUDx9AVwW2u1ErhSyH39ZvpCPBLg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\origi\\Desktop\\Projects\\MiniBank\\MiniBank.Web\\MiniBank.Web.csproj",
+  "projectFilePath": "C:\\Users\\origi\\Desktop\\MiniBank\\MiniBank.Web\\MiniBank.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\origi\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\origi\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
