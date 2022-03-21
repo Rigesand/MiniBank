@@ -3,11 +3,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MiniBank.Core.Domains.BankAccounts.Repositories;
 using MiniBank.Core.Domains.CurrencyConverters.Repositories;
-using MiniBank.Core.Domains.TranslationHistories.Repositories;
+using MiniBank.Core.Domains.RemittanceHistories.Repositories;
 using MiniBank.Core.Domains.Users.Repositories;
 using MiniBank.Data.Accounts.Repository;
 using MiniBank.Data.HttpClients.Services;
-using MiniBank.Data.TranslationHistories.Repositories;
+using MiniBank.Data.RemittanceHistories.Repositories;
 using MiniBank.Data.Users.Repositories;
 
 namespace MiniBank.Data
@@ -23,7 +23,7 @@ namespace MiniBank.Data
             });
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IBankAccountRepository,BankAccountRepository>();
-            services.AddScoped<ITranslationRepository, TranslationRepository>();
+            services.AddScoped<IRemittanceRepository, RemittanceHistoryRepository>();
             return services;
         }
     }

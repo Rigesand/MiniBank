@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using MiniBank.Core.Domains.Users;
@@ -35,16 +36,16 @@ namespace MiniBank.Web.Controllers.Users
         }
         
         [HttpDelete("Delete")]
-        public void  Delete(string id)
+        public void Delete(Guid id)
         {
             _userService.Delete(id);
         }
         
         [HttpGet("GetAllUsers")]
-        public List<GetUserDto> GetAllUsers()
+        public IEnumerable<GetUserDto> GetAllUsers()
         {
             var users=_userService.GetAllUsers();
-            return _mapper.Map<List<User>, List<GetUserDto>>(users);
+            return _mapper.Map<IEnumerable<User>, IEnumerable<GetUserDto>>(users);
         }
     }
 }

@@ -27,8 +27,6 @@ namespace MiniBank.Core.Domains.Users.Services
             if (string.IsNullOrEmpty(newUser.Email))
                 throw new ValidationException("Email не может быть пустым или null");
             
-            newUser.Id = Guid.NewGuid().ToString();
-            
             _userRepository.Create(newUser);
         }
 
@@ -48,14 +46,12 @@ namespace MiniBank.Core.Domains.Users.Services
             _userRepository.Update(user);
         }
 
-        public void Delete(string id)
+        public void Delete(Guid id)
         {
-            if (string.IsNullOrEmpty(id))
-                throw new ValidationException("Id не может быть пустым или null");
             _userRepository.Delete(id);
         }
 
-        public List<User> GetAllUsers()
+        public IEnumerable<User> GetAllUsers()
         {
             return _userRepository.GetAllUsers();
         }

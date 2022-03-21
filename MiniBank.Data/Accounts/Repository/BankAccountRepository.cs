@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
@@ -11,7 +12,7 @@ namespace MiniBank.Data.Accounts.Repository
     public class BankAccountRepository: IBankAccountRepository
     {
         
-        public static List<AccountDbModel> BankAccounts = new List<AccountDbModel>();
+        private static BlockingCollection<AccountDbModel> BankAccounts = new BlockingCollection<AccountDbModel>();
 
         private readonly IMapper _mapper;
 
@@ -23,13 +24,13 @@ namespace MiniBank.Data.Accounts.Repository
         public void Create(Account newAccount)
         {
             var dbAccount = _mapper.Map<Account, AccountDbModel>(newAccount);
+            dbAccount.Id=Guid.NewGuid();
+            dbAccount.OpeningDate = DateTime.UtcNow;
             BankAccounts.Add(dbAccount);
         }
 
-        public Account GetAccount(string accountId)
+        public Account GetAccount(Guid accountId)
         {
-            if (string.IsNullOrEmpty(accountId))
-                throw new ValidationException("id не может быть пустым или null");
             var dbAccount = BankAccounts.FirstOrDefault(it => it.Id == accountId);
 
             if (dbAccount==null)
@@ -40,9 +41,9 @@ namespace MiniBank.Data.Accounts.Repository
             return coreAccount;
         }
 
-        public void CloseAccount(string id)
+        public void CloseAccount(Guid id)
         {
-            var dbAccount = BankAccounts.Find(it => it.Id == id);
+            var dbAccount = BankAccounts.FirstOrDefault(it => it.Id == id);
             if (dbAccount is null)
                 throw new ValidationException("Аккаунта с таким id не существует");
 
@@ -50,32 +51,30 @@ namespace MiniBank.Data.Accounts.Repository
                 throw new ValidationException("Не удалось закрыть аккаунт,так как на счету имеются средства");
             
             dbAccount.IsActive = false;
-            dbAccount.ClosingDate=DateTime.Now;
+            dbAccount.ClosingDate=DateTime.UtcNow;
         }
 
-        public void Remittance(Account fromAccount, Account toAccount)
+        public void ChangeAmounts(Account fromAccount, Account toAccount)
         {
-            var fromAccountIndex = BankAccounts.FindIndex(it => it.Id == fromAccount.Id);
-            var toAccountIndex = BankAccounts.FindIndex(it => it.Id == toAccount.Id);
+            var fromAccountDb = BankAccounts.FirstOrDefault(it => it.Id == fromAccount.Id);
+            var toAccountDb = BankAccounts.FirstOrDefault(it => it.Id == toAccount.Id);
 
-            BankAccounts[fromAccountIndex].Sum = fromAccount.Sum;
-            BankAccounts[toAccountIndex].Sum = toAccount.Sum;
+            fromAccountDb.Sum = fromAccount.Sum;
+            toAccountDb.Sum = toAccount.Sum;
         }
 
 
-        public bool AccountExists(string userId)
+        public bool AccountExists(Guid userId)
         {
-            if (string.IsNullOrEmpty(userId))
-                throw new ValidationException("id не может быть пустым или null");
-            var isExists = BankAccounts.Find(it => it.UserId == userId);
-            if (isExists is not null)
+            var isExists = BankAccounts.Any(it => it.UserId == userId);
+            if (isExists)
                 return true;
             return false;
         }
 
-        public List<Account> GetAllAccounts()
+        public IEnumerable<Account> GetAllAccounts()
         {
-            return _mapper.Map<List<AccountDbModel>, List<Account>>(BankAccounts);
+            return _mapper.Map<BlockingCollection<AccountDbModel>, IEnumerable<Account>>(BankAccounts);
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using MiniBank.Core.Domains.BankAccounts.Services;
 using MiniBank.Core.Domains.CurrencyConverters.Services;
-using MiniBank.Core.Domains.TranslationHistories.Services;
+using MiniBank.Core.Domains.RemittanceHistories.Services;
 using MiniBank.Core.Domains.Users.Services;
 
 namespace MiniBank.Core
@@ -13,7 +13,7 @@ namespace MiniBank.Core
             services.AddScoped<ICurrencyConverter, CurrencyConverterService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IBankAccountService, BankAccountService>();
-            services.AddScoped<ITranslationService, TranslationService>();
+            services.AddScoped<IRemittanceHistoryService, RemittanceHistoryService>();
             return services;
         }
     }

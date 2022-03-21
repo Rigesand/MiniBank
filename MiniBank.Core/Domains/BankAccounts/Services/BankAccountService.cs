@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using MiniBank.Core.Domains.BankAccounts.Repositories;
 using MiniBank.Core.Domains.CurrencyConverters.Services;
-using MiniBank.Core.Domains.TranslationHistories;
-using MiniBank.Core.Domains.TranslationHistories.Services;
+using MiniBank.Core.Domains.RemittanceHistories;
+using MiniBank.Core.Domains.RemittanceHistories.Services;
 using MiniBank.Core.Domains.Users.Repositories;
 using MiniBank.Core.Exception;
 
@@ -14,19 +14,18 @@ namespace MiniBank.Core.Domains.BankAccounts.Services
         private readonly IBankAccountRepository _accountRepository;
         private readonly IUserRepository _userRepository;
         private readonly ICurrencyConverter _currencyConverter;
-        private readonly ITranslationService _translationService;
+        private readonly IRemittanceHistoryService _remittanceHistoryService;
 
         private const string Eur = "EUR";
         private const string Usd = "USD";
         private const string Rub = "RUB";
-        private const decimal Comission=1.02m;
-        private const decimal ComissionSent=0.98m;
-        public BankAccountService(IBankAccountRepository accountRepository, IUserRepository userRepository, ICurrencyConverter currencyConverter, ITranslationService translationService)
+        private const decimal Comission=0.98m;
+        public BankAccountService(IBankAccountRepository accountRepository, IUserRepository userRepository, ICurrencyConverter currencyConverter, IRemittanceHistoryService remittanceHistoryService)
         {
             _accountRepository = accountRepository;
             _userRepository = userRepository;
             _currencyConverter = currencyConverter;
-            _translationService = translationService;
+            _remittanceHistoryService = remittanceHistoryService;
         }
 
         public void Create(Account newAccount)
@@ -43,44 +42,36 @@ namespace MiniBank.Core.Domains.BankAccounts.Services
             if (!isExists)
                 throw new ValidationException("Пользователя не существует");
 
-            newAccount.Id = Guid.NewGuid().ToString();
+            newAccount.Id = Guid.NewGuid();
             newAccount.IsActive = true;
             newAccount.OpeningDate=DateTime.Now;
             
             _accountRepository.Create(newAccount);
         }
 
-        public void CloseAccount(string id)
+        public void CloseAccount(Guid id)
         {
-            if (string.IsNullOrEmpty(id))
-                throw new ValidationException("Id не может быть пустым или null");
-            
             _accountRepository.CloseAccount(id);
         }
 
-        public decimal CalculateComission(decimal sum, string fromAccountId, string toAccountId)
+        public decimal CalculateComission(decimal sum, Guid fromAccountId, Guid toAccountId)
         {
             if (sum <= 0)
                 throw new ValidationException("Сумма не может быть отрицательной или равной нулю");
             
-            if (string.IsNullOrEmpty(fromAccountId)||string.IsNullOrEmpty(toAccountId))
-                throw new ValidationException("Id не может быть пустым или null");
             
-            if (string.Equals(fromAccountId,toAccountId))
+            if (fromAccountId==toAccountId)
                 return decimal.Round(sum,2,MidpointRounding.ToEven);
 
             return decimal.Round(sum * Comission,2,MidpointRounding.ToEven);
         }
 
-        public void Remittance(decimal sum, string fromAccountId, string toAccountId)
+        public void Remittance(decimal sum, Guid fromAccountId, Guid toAccountId)
         {
             if (sum <= 0)
                 throw new ValidationException("Сумма не может быть отрицательной или равной нулю");
             
-            if (string.IsNullOrEmpty(fromAccountId)||string.IsNullOrEmpty(toAccountId))
-                throw new ValidationException("Id не может быть пустым или null");
             
-
             var fromAccount = _accountRepository.GetAccount(fromAccountId);
             var toAccount = _accountRepository.GetAccount(toAccountId);
 
@@ -90,23 +81,15 @@ namespace MiniBank.Core.Domains.BankAccounts.Services
             if (!fromAccount.IsActive||!toAccount.IsActive)
                 throw new ValidationException("Аккаунт не может быть закрытым");
             
-            var sumWithComission=CalculateComission(sum,fromAccountId,toAccountId);
-            var amountSent = sum;
+            var sumWithComission=CalculateComission(sum,fromAccount.UserId,toAccount.UserId);
+            var amountSent = sumWithComission;
             if (!string.Equals(fromAccount.Currency ,toAccount.Currency))
                 amountSent=_currencyConverter.Convert(sum, fromAccount.Currency, toAccount.Currency);
+            
+            fromAccount.Sum -= sum; 
+            toAccount.Sum += amountSent;
 
-            if (fromAccount.Sum==sum)
-            {
-                fromAccount.Sum = 0;
-                toAccount.Sum += ComissionSent*amountSent;
-            }
-            else
-            {
-                fromAccount.Sum -= sumWithComission; 
-                toAccount.Sum += amountSent;
-            }
-
-            _translationService.AddTranslationHistory(new TranslationHistory()
+            _remittanceHistoryService.AddRemittanceHistory(new RemittanceHistory()
             {
                 Sum=amountSent,
                 Currency = toAccount.Currency,
@@ -114,10 +97,10 @@ namespace MiniBank.Core.Domains.BankAccounts.Services
                 ToAccountId = toAccount.Id
             });
             
-            _accountRepository.Remittance(fromAccount,toAccount);
+            _accountRepository.ChangeAmounts(fromAccount,toAccount);
         }
 
-        public List<Account> GetAllAccounts()
+        public IEnumerable<Account> GetAllAccounts()
         {
             return _accountRepository.GetAllAccounts();
         }

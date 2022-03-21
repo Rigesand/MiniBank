@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace MiniBank.Core.Domains.Users.Repositories
 {
@@ -6,8 +7,8 @@ namespace MiniBank.Core.Domains.Users.Repositories
     {
         void Create(User newUser);
         void Update(User user);
-        void Delete(string id);
-        bool UserExists(string userId);
-        List<User> GetAllUsers();
+        void Delete(Guid id);
+        bool UserExists(Guid userId);
+        IEnumerable<User> GetAllUsers();
     }
 }

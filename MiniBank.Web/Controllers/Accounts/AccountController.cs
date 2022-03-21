@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using MiniBank.Core.Domains.BankAccounts;
@@ -28,28 +29,28 @@ namespace MiniBank.Web.Controllers.Accounts
         }
         
         [HttpPost("CloseAccount")]
-        public void CloseAccount(string id)
+        public void CloseAccount(Guid id)
         {
             _bankAccountService.CloseAccount(id);
         }
         
         [HttpGet("CalculateComission")]
-        public decimal CalculateComission(decimal sum,string fromAccountId,string toAccountId)
+        public decimal CalculateComission(decimal sum,Guid fromAccountId,Guid toAccountId)
         {
             return _bankAccountService.CalculateComission(sum,fromAccountId,toAccountId);
         }
         
-        [HttpGet("Remittance")]
-        public void Remittance(decimal sum,string fromAccountId,string toAccountId)
+        [HttpPost("Remittance")]
+        public void Remittance(decimal sum,Guid fromAccountId,Guid toAccountId)
         {
             _bankAccountService.Remittance(sum,fromAccountId,toAccountId);
         }
         
         [HttpGet("GetAllAccounts")]
-        public List<GetAccountDto> GetAllAccounts()
+        public IEnumerable<GetAccountDto> GetAllAccounts()
         {
             var accounts=_bankAccountService.GetAllAccounts();
-            return _mapper.Map<List<Account>, List<GetAccountDto>>(accounts);
+            return _mapper.Map<IEnumerable<Account>, IEnumerable<GetAccountDto>>(accounts);
         }
     }
 }

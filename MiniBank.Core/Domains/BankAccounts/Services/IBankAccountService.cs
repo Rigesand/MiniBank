@@ -1,13 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace MiniBank.Core.Domains.BankAccounts.Services
 {
     public interface IBankAccountService
     {
         void Create(Account newAccount);
-        void CloseAccount(string id);
-        decimal CalculateComission(decimal sum,string fromAccountId,string toAccountId);
-        void Remittance(decimal sum,string fromAccountId,string toAccountId);
-        List<Account> GetAllAccounts();
+        void CloseAccount(Guid id);
+        decimal CalculateComission(decimal sum,Guid fromAccountId,Guid toAccountId);
+        void Remittance(decimal sum,Guid fromAccountId,Guid toAccountId);
+        IEnumerable<Account> GetAllAccounts();
     }
 }
