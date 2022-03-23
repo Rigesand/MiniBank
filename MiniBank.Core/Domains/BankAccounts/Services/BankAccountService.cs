@@ -44,7 +44,7 @@ namespace MiniBank.Core.Domains.BankAccounts.Services
 
             newAccount.Id = Guid.NewGuid();
             newAccount.IsActive = true;
-            newAccount.OpeningDate=DateTime.Now;
+            newAccount.OpeningDate=DateTime.UtcNow;
             
             _accountRepository.Create(newAccount);
         }
@@ -54,13 +54,12 @@ namespace MiniBank.Core.Domains.BankAccounts.Services
             _accountRepository.CloseAccount(id);
         }
 
-        public decimal CalculateComission(decimal sum, Guid fromAccountId, Guid toAccountId)
+        public decimal CalculateComission(decimal sum, Guid fromUserId, Guid toUserId)
         {
             if (sum <= 0)
                 throw new ValidationException("Сумма не может быть отрицательной или равной нулю");
             
-            
-            if (fromAccountId==toAccountId)
+            if (fromUserId==toUserId)
                 return decimal.Round(sum,2,MidpointRounding.ToEven);
 
             return decimal.Round(sum * Comission,2,MidpointRounding.ToEven);

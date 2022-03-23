@@ -7,7 +7,7 @@ namespace MiniBank.Core.Domains.BankAccounts.Services
     {
         void Create(Account newAccount);
         void CloseAccount(Guid id);
-        decimal CalculateComission(decimal sum,Guid fromAccountId,Guid toAccountId);
+        decimal CalculateComission(decimal sum,Guid fromAccountId,Guid toUserId);
         void Remittance(decimal sum,Guid fromAccountId,Guid toAccountId);
         IEnumerable<Account> GetAllAccounts();
     }
