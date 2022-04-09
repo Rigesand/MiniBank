@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using MiniBank.Core.Domains.BankAccounts;
 using MiniBank.Core.Domains.BankAccounts.Services;
@@ -14,24 +16,27 @@ namespace MiniBank.Web.Controllers.Accounts
     {
         private readonly IBankAccountService _bankAccountService;
         private readonly IMapper _mapper;
+        private readonly IValidator<CreateAccountDto> _createValidator;
 
-        public AccountController(IBankAccountService bankAccountService, IMapper mapper)
+        public AccountController(IBankAccountService bankAccountService, IMapper mapper, IValidator<CreateAccountDto> createValidator)
         {
             _bankAccountService = bankAccountService;
             _mapper = mapper;
+            _createValidator = createValidator;
         }
         
         [HttpPost("Create")]
-        public void Create([FromBody] CreateAccountDto accountDto)
+        public async Task Create([FromBody] CreateAccountDto accountDto)
         {
+            await _createValidator.ValidateAndThrowAsync(accountDto);
             var account = _mapper.Map<CreateAccountDto, Account>(accountDto);
-            _bankAccountService.Create(account);
+            await _bankAccountService.Create(account);
         }
         
         [HttpPost("CloseAccount")]
-        public void CloseAccount(Guid id)
+        public async Task CloseAccount(Guid id)
         {
-            _bankAccountService.CloseAccount(id);
+            await _bankAccountService.CloseAccount(id);
         }
         
         [HttpGet("CalculateComission")]
@@ -41,15 +46,15 @@ namespace MiniBank.Web.Controllers.Accounts
         }
         
         [HttpPost("Remittance")]
-        public void Remittance(decimal sum,Guid fromAccountId,Guid toAccountId)
+        public async Task Remittance(decimal sum,Guid fromAccountId,Guid toAccountId)
         {
-            _bankAccountService.Remittance(sum,fromAccountId,toAccountId);
+            await _bankAccountService.Remittance(sum,fromAccountId,toAccountId);
         }
         
         [HttpGet("GetAllAccounts")]
-        public IEnumerable<GetAccountDto> GetAllAccounts()
+        public async Task<IEnumerable<GetAccountDto>> GetAllAccounts()
         {
-            var accounts=_bankAccountService.GetAllAccounts();
+            var accounts=await _bankAccountService.GetAllAccounts();
             return _mapper.Map<IEnumerable<Account>, IEnumerable<GetAccountDto>>(accounts);
         }
     }

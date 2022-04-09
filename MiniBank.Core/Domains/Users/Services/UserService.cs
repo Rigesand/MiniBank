@@ -1,59 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using MiniBank.Core.Domains.Users.Repositories;
-using MiniBank.Core.Exception;
 
 namespace MiniBank.Core.Domains.Users.Services
 {
     public class UserService:IUserService
     {
         private readonly IUserRepository _userRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public UserService(IUserRepository userRepository)
+        public UserService(IUserRepository userRepository, IUnitOfWork unitOfWork)
         {
             _userRepository = userRepository;
+            _unitOfWork = unitOfWork;
         }
 
-        public void Create(User newUser)
+        public async Task Create(User newUser)
         {
-            if (newUser is null)
-                throw new ValidationException("Пользователь не может быть равен null");
-            
-            if (string.IsNullOrEmpty(newUser.Login) || newUser.Login.Length > 20)
-            {
-                throw new ValidationException("Логин не может быть пустым,равен null или его длина более 20 символов");
-            }
-
-            if (string.IsNullOrEmpty(newUser.Email))
-                throw new ValidationException("Email не может быть пустым или null");
-            
-            _userRepository.Create(newUser);
+            await _userRepository.Create(newUser);
+            await _unitOfWork.SaveChanges();
         }
 
-        public void Update(User user)
+        public async Task Update(User user)
         {
-            if (user is null)
-                throw new ValidationException("Пользователь не может быть равен null");
-            
-            if (string.IsNullOrEmpty(user.Login) || user.Login.Length > 20)
-            {
-                throw new ValidationException("Логин не может быть пустым,равен null или его длина более 20 символов");
-            }
-            
-            if (string.IsNullOrEmpty(user.Email))
-                throw new ValidationException("Email не может быть пустым или null");
-            
-            _userRepository.Update(user);
+            await _userRepository.Update(user);
+            await _unitOfWork.SaveChanges();
         }
 
-        public void Delete(Guid id)
+        public async Task Delete(Guid id)
         {
-            _userRepository.Delete(id);
+            await _userRepository.Delete(id);
+            await _unitOfWork.SaveChanges();
         }
 
-        public IEnumerable<User> GetAllUsers()
+        public async Task<IEnumerable<User>> GetAllUsers()
         {
-            return _userRepository.GetAllUsers();
+            return await _userRepository.GetAllUsers();
+        }
+
+        public async Task<bool> IsExist(string login)
+        {
+            return await _userRepository.IsExist(login);
         }
     }
 }

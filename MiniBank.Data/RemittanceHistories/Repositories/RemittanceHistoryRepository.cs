@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Concurrent;
+using System.Threading.Tasks;
 using AutoMapper;
 using MiniBank.Core.Domains.RemittanceHistories;
 using MiniBank.Core.Domains.RemittanceHistories.Repositories;
@@ -8,19 +8,20 @@ namespace MiniBank.Data.RemittanceHistories.Repositories
 {
     public class RemittanceHistoryRepository: IRemittanceRepository
     {
-        private static BlockingCollection<RemittanceHistoryDbModel> RemittanceHistories = new BlockingCollection<RemittanceHistoryDbModel>();
         private readonly IMapper _mapper;
+        private readonly MiniBankDbContext _context;
 
-        public RemittanceHistoryRepository(IMapper mapper)
+        public RemittanceHistoryRepository(IMapper mapper, MiniBankDbContext context)
         {
             _mapper = mapper;
+            _context = context;
         }
 
-        public void AddRemittanceHistory(RemittanceHistory history)
+        public async Task AddRemittanceHistory(RemittanceHistory history)
         {
             var dbHistory = _mapper.Map<RemittanceHistory, RemittanceHistoryDbModel>(history);
             dbHistory.Id = Guid.NewGuid();
-            RemittanceHistories.Add(dbHistory);
+            await _context.RemittanceHistories.AddAsync(dbHistory);
         }
     }
 }

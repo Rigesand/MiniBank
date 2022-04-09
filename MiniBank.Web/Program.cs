@@ -1,9 +1,14 @@
+using FluentValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MiniBank.Core;
 using MiniBank.Data;
 using MiniBank.Web;
+using MiniBank.Web.Controllers.Accounts.Dto;
+using MiniBank.Web.Controllers.Accounts.Validators;
+using MiniBank.Web.Controllers.Users.Dto;
+using MiniBank.Web.Controllers.Users.Validators;
 using MiniBank.Web.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,7 +29,10 @@ builder.Services.AddAutoMapper(cfg =>
     cfg.AddProfile<ApiMappingProfile>();
     cfg.AddProfile<DataMappingProfile>();
 });
-
+//Регистрация валидаторов
+builder.Services.AddScoped<IValidator<CreateUserDto>, CreateUserValidator>();
+builder.Services.AddScoped<IValidator<UpdateUserDto>, UpdateUserValidator>();
+builder.Services.AddScoped<IValidator<CreateAccountDto>, CreateAccountValidator>();
 var app = builder.Build();
 
 //app.UseException();
