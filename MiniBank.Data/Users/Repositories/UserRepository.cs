@@ -44,7 +44,7 @@ namespace MiniBank.Data.Users.Repositories
             if (dbUser == null)
                 throw new ValidationException("Пользователя с таким id не существует");
             
-            bool isExists=await _accountRepository.AccountExists(id);
+            var isExists=await _accountRepository.AccountExists(id);
             if (isExists)
                 throw new ValidationException("У пользователя есть привязанные банковские аккаунты");
             
@@ -56,9 +56,7 @@ namespace MiniBank.Data.Users.Repositories
             var isExists = await _context.Users
                 .AsNoTracking()
                 .AnyAsync(it => it.Id == userId);
-            if (isExists)
-                return true;
-            return false;
+            return isExists;
         }
 
         public async Task<IEnumerable<User>> GetAllUsers()

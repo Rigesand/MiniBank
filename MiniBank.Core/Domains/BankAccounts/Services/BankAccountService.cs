@@ -33,10 +33,14 @@ namespace MiniBank.Core.Domains.BankAccounts.Services
 
         public async Task Create(Account newAccount)
         {
+            if (newAccount is null)
+            {
+                throw new ArgumentNullException("Пользователь не может быть равен null");
+            }
             if (newAccount.Currency is not (Eur or Usd or Rub))
                 throw new ValidationException("Валюта должна быть одной из RUB,EUR,USD");
 
-            bool isExists=await _userRepository.UserExists(newAccount.UserId);
+            var isExists=await _userRepository.UserExists(newAccount.UserId);
 
             if (!isExists)
                 throw new ValidationException("Пользователя не существует");
