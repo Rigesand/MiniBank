@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using MiniBank.Core.Domains.BankAccounts;
 using MiniBank.Core.Domains.BankAccounts.Repositories;
 using MiniBank.Core.Exception;
@@ -11,27 +11,26 @@ namespace MiniBank.Data.Accounts.Repository
 {
     public class BankAccountRepository: IBankAccountRepository
     {
-        
-        private static BlockingCollection<AccountDbModel> BankAccounts = new BlockingCollection<AccountDbModel>();
-
+        private readonly MiniBankDbContext _context;
         private readonly IMapper _mapper;
 
-        public BankAccountRepository(IMapper mapper)
+        public BankAccountRepository(IMapper mapper, MiniBankDbContext context)
         {
             _mapper = mapper;
+            _context = context;
         }
 
-        public void Create(Account newAccount)
+        public async Task Create(Account newAccount)
         {
             var dbAccount = _mapper.Map<Account, AccountDbModel>(newAccount);
             dbAccount.Id=Guid.NewGuid();
             dbAccount.OpeningDate = DateTime.UtcNow;
-            BankAccounts.Add(dbAccount);
+            await _context.Accounts.AddAsync(dbAccount);
         }
 
-        public Account GetAccount(Guid accountId)
+        public async Task<Account> GetAccount(Guid accountId)
         {
-            var dbAccount = BankAccounts.FirstOrDefault(it => it.Id == accountId);
+            var dbAccount = await _context.Accounts.FirstOrDefaultAsync(it => it.Id == accountId);
 
             if (dbAccount==null)
                 throw new ValidationException("Такого аккаунта не существует");
@@ -41,9 +40,9 @@ namespace MiniBank.Data.Accounts.Repository
             return coreAccount;
         }
 
-        public void CloseAccount(Guid id)
+        public async Task CloseAccount(Guid id)
         {
-            var dbAccount = BankAccounts.FirstOrDefault(it => it.Id == id);
+            var dbAccount = await _context.Accounts.FirstOrDefaultAsync(it => it.Id == id);
             if (dbAccount is null)
                 throw new ValidationException("Аккаунта с таким id не существует");
 
@@ -54,27 +53,32 @@ namespace MiniBank.Data.Accounts.Repository
             dbAccount.ClosingDate=DateTime.UtcNow;
         }
 
-        public void ChangeAmounts(Account fromAccount, Account toAccount)
+        public async Task ChangeAmounts(Account fromAccount, Account toAccount)
         {
-            var fromAccountDb = BankAccounts.FirstOrDefault(it => it.Id == fromAccount.Id);
-            var toAccountDb = BankAccounts.FirstOrDefault(it => it.Id == toAccount.Id);
+            var fromAccountDb =await _context.Accounts.FirstOrDefaultAsync(it => it.Id == fromAccount.Id);
+            var toAccountDb = await _context.Accounts.FirstOrDefaultAsync(it => it.Id == toAccount.Id);
 
             fromAccountDb.Sum = fromAccount.Sum;
             toAccountDb.Sum = toAccount.Sum;
         }
 
 
-        public bool AccountExists(Guid userId)
+        public async Task<bool> AccountExists(Guid userId)
         {
-            var isExists = BankAccounts.Any(it => it.UserId == userId);
+            var isExists = await _context.Accounts
+                .AsNoTracking()
+                .AnyAsync(it => it.UserId == userId);
             if (isExists)
                 return true;
             return false;
         }
 
-        public IEnumerable<Account> GetAllAccounts()
+        public async Task<IEnumerable<Account>> GetAllAccounts()
         {
-            return _mapper.Map<BlockingCollection<AccountDbModel>, IEnumerable<Account>>(BankAccounts);
+            var accounts = await _context.Accounts
+                .AsNoTracking()
+                .ToListAsync();
+            return _mapper.Map<List<AccountDbModel>, IEnumerable<Account>>(accounts);
         }
     }
 }

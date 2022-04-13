@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using MiniBank.Core.Domains.Users;
 using MiniBank.Core.Domains.Users.Services;
@@ -14,37 +16,43 @@ namespace MiniBank.Web.Controllers.Users
     {
         private readonly IUserService _userService;
         private readonly IMapper _mapper;
+        private readonly IValidator<CreateUserDto> _createValidator;
+        private readonly IValidator<UpdateUserDto> _updateValidator;
 
-        public UserController(IUserService userService, IMapper mapper)
+        public UserController(IUserService userService, IMapper mapper, IValidator<CreateUserDto> createValidator, IValidator<UpdateUserDto> updateValidator)
         {
             _userService = userService;
             _mapper = mapper;
+            _createValidator = createValidator;
+            _updateValidator = updateValidator;
         }
 
         [HttpPost("Create")]
-        public void Create([FromBody] UserDto userDto)
+        public async Task Create([FromBody] CreateUserDto createUserDto)
         {
-            var user = _mapper.Map<UserDto, User>(userDto);
-            _userService.Create(user);
+            await _createValidator.ValidateAndThrowAsync(createUserDto);
+            var user = _mapper.Map<CreateUserDto, User>(createUserDto);
+            await _userService.Create(user);
         }
         
         [HttpPut("Update")]
-        public void Update([FromBody] UpdateUserDto updateUserDto)
+        public async Task Update([FromBody] UpdateUserDto updateUserDto)
         {
+            await _updateValidator.ValidateAndThrowAsync(updateUserDto);
             var user = _mapper.Map<UpdateUserDto, User>(updateUserDto);
-            _userService.Update(user);
+            await _userService.Update(user);
         }
         
         [HttpDelete("Delete")]
-        public void Delete(Guid id)
+        public async Task Delete(Guid id)
         {
-            _userService.Delete(id);
+            await _userService.Delete(id);
         }
         
         [HttpGet("GetAllUsers")]
-        public IEnumerable<GetUserDto> GetAllUsers()
+        public async Task<IEnumerable<GetUserDto>> GetAllUsers()
         {
-            var users=_userService.GetAllUsers();
+            var users=await _userService.GetAllUsers();
             return _mapper.Map<IEnumerable<User>, IEnumerable<GetUserDto>>(users);
         }
     }

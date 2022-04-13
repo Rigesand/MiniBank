@@ -10,7 +10,7 @@ namespace MiniBank.Web
     {
         public ApiMappingProfile()
         {
-            CreateMap<UserDto, User>().ReverseMap();
+            CreateMap<CreateUserDto, User>().ReverseMap();
             CreateMap<GetUserDto, User>().ReverseMap();
             CreateMap<UpdateUserDto, User>().ReverseMap();
             CreateMap<GetAccountDto, Account>().ReverseMap();

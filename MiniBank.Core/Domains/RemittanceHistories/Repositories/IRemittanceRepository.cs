@@ -1,7 +1,9 @@
-﻿namespace MiniBank.Core.Domains.RemittanceHistories.Repositories
+﻿using System.Threading.Tasks;
+
+namespace MiniBank.Core.Domains.RemittanceHistories.Repositories
 {
     public interface IRemittanceRepository
     {
-        void AddRemittanceHistory(RemittanceHistory history);
+        Task AddRemittanceHistory(RemittanceHistory history);
     }
 }

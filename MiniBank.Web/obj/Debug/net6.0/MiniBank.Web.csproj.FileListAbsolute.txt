@@ -93,3 +93,14 @@ C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\obj\Debug\net6.0\refint\Mi
 C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\obj\Debug\net6.0\MiniBank.Web.genruntimeconfig.cache
 C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\obj\Debug\net6.0\ref\MiniBank.Web.dll
 C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\obj\Debug\net6.0\MiniBank.Web.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\bin\Debug\net6.0\Castle.Core.dll
+C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Proxies.dll
+C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\bin\Debug\net6.0\Npgsql.dll
+C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\bin\Debug\net6.0\EFCore.NamingConventions.dll
+C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\bin\Debug\net6.0\FluentValidation.dll
+C:\Users\origi\Desktop\Projects\MiniBank\MiniBank.Web\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
