@@ -120,28 +120,18 @@ namespace MiniBank.Core.Tests.Tests
             //ASSERT
             _userRepositoryMock.Verify(it=>it.IsExist(It.IsAny<string>()),Times.Never);
         }
-        [Fact]
-        public async Task IsExist_LoginIsValid_ShouldReturnTrue()
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public async Task IsExist_LoginIsValid_ShouldReturnValueBasedOnRepositoryOutput(bool repositoryResult)
         {
             //ARRANGE
             var login = _fixture.Build<string>().Create();
-            _userRepositoryMock.Setup(it => it.IsExist(login)).ReturnsAsync(true);
+            _userRepositoryMock.Setup(it => it.IsExist(login)).ReturnsAsync(repositoryResult);
             //ACT
             var isExist = await _service.IsExist(login);
             //ASSERT
-            Assert.True(isExist);
-            _userRepositoryMock.Verify(it=>it.IsExist(It.IsAny<string>()),Times.Once);
-        }
-        [Fact]
-        public async Task IsExist_LoginIsValid_ShouldReturnFalse()
-        {
-            //ARRANGE
-            var login = _fixture.Build<string>().Create();
-            _userRepositoryMock.Setup(it => it.IsExist(login)).ReturnsAsync(false);
-            //ACT
-            var isExist = await _service.IsExist(login);
-            //ASSERT
-            Assert.False(isExist);
+            Assert.Equal(repositoryResult,isExist);
             _userRepositoryMock.Verify(it=>it.IsExist(It.IsAny<string>()),Times.Once);
         }
         [Fact]
