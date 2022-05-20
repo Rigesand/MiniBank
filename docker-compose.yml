@@ -19,9 +19,9 @@ services:
     container_name: app
     build: 
       context: .
-      dockerfile: /build/Minibank.Dockerfile
+      dockerfile: build/Minibank.Dockerfile
     depends_on:
-      - "miniBank_storage"
+      - storage
     ports:
       - "5000:5000"
       - "5001:5001"
